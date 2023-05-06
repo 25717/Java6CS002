@@ -41,14 +41,25 @@ public class Location extends SpacePlace {
 	}
 
 	public void drawGridLines(Graphics g) {
+		
+		drawHorizontalGridLines(g);
+		drawVerticalGridLines(g);
+	}
+	
+	private void drawHorizontalGridLines(Graphics g) {
 		g.setColor(Color.LIGHT_GRAY);
 		for (tmp = 0; tmp <= 7; tmp++) {
 			g.drawLine(20, 20 + tmp * 20, 180, 20 + tmp * 20);
 		}
+	}
+	
+	private void drawVerticalGridLines(Graphics g) {
 		for (int see = 0; see <= 8; see++) {
 			g.drawLine(20 + see * 20, 20, 20 + see * 20, 160);
 		}
 	}
+	
+	
 ////// DIVERGENT CHANGEEEE>>>////
 	public static int getInt() {
 		BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
