@@ -97,18 +97,15 @@ public class PictureFrame {
 // }
 //
 // drawGrid(g);
-			Location l = new Location(1, 2);
+			Location l = new Location(1, 2); //Consolidate Duplicate Fragment
+			l.drawGridLines(g);
+			drawHeadings(g);
+			drawGrid(g);
 
 			if (master.mode == 1) {
-				l.drawGridLines(g);
-				drawHeadings(g);
-				drawGrid(g);
 				master.drawGuesses(g);
 			}
 			if (master.mode == 0) {
-				l.drawGridLines(g);
-				drawHeadings(g);
-				drawGrid(g);
 				master.drawDominoes(g);
 			}
 		}
