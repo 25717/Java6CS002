@@ -229,7 +229,9 @@ public class Main {
 
 	private Domino findDominoAt(int x, int y) {
 		for (Domino d : _d) {
-			if ((d.lx == x && d.ly == y) || (d.hx == x && d.hy == y)) {
+			boolean lowMatches = d.lx == x && d.ly == y;
+			boolean highMatches = d.hx == x && d.hy == y;
+			if (lowMatches || highMatches) {
 				return d;
 			}
 		}
@@ -238,7 +240,9 @@ public class Main {
 
 	private Domino findGuessAt(int x, int y) {
 		for (Domino d : _g) {
-			if ((d.lx == x && d.ly == y) || (d.hx == x && d.hy == y)) {
+			boolean lowMatches = d.lx == x && d.ly == y;
+			boolean highMatches = d.hx == x && d.hy == y;
+			if (lowMatches || highMatches) {
 				return d;
 			}
 		}
