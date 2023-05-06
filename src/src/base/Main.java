@@ -30,46 +30,41 @@ public class Main {
 
 	PictureFrame pf = new PictureFrame();
 
-	private void generateDominoes() {
-		_d = new LinkedList<Domino>();
+	private void generateDominoesandGuesses(List<Domino> dominoList) {
 		int count = 0;
 		int x = 0;
-		int y = 0;
-		for (int l = 0; l <= 6; l++) {
-			for (int h = l; h <= 6; h++) {
-				Domino d = new Domino(h, l);
-				_d.add(d);
-				d.place(x, y, x + 1, y);
-				count++;
-				x += 2;
-				if (x > 6) {
+	    int y = 0;
+	    for (int l = 0; l <= 6; l++) {
+	        for (int h = l; h <= 6; h++) {
+	            Domino d = new Domino(h, l);
+	            dominoList.add(d);
+	            if (dominoList == _d) {
+	            	d.place(x, y, x + 1, y);
+	            }
+	            
+	            count++;
+	            x +=2;
+	            if (x > 6) {
 					x = 0;
 					y++;
-				}
-			}
-		}
-		if (count != 28) {
+				}  
+	         }
+	    }
+	    if (count != 28) {
 			System.out.println("something went wrong generating dominoes");
 			System.exit(0);
 		}
 	}
+	
+	private void generateDominoes() {
+		_d = new LinkedList<Domino>();
+		generateDominoesandGuesses(_d);
+		
+	}
 
 	private void generateGuesses() {
 		_g = new LinkedList<Domino>();
-		int count = 0;
-		int x = 0;
-		int y = 0;
-		for (int l = 0; l <= 6; l++) {
-			for (int h = l; h <= 6; h++) {
-				Domino d = new Domino(h, l);
-				_g.add(d);
-				count++;
-			}
-		}
-		if (count != 28) {
-			System.out.println("something went wrong generating dominoes");
-			System.exit(0);
-		}
+		generateDominoesandGuesses(_g);
 	}
 
 	void collateGrid() {
@@ -227,6 +222,7 @@ public class Main {
 		return (x == Math.min(d.lx, d.hx)) && (y == Math.min(d.ly, d.hy));
 	}
 
+	//Introduce explaining variables
 	private Domino findDominoAt(int x, int y) {
 		for (Domino d : _d) {
 			boolean lowMatches = d.lx == x && d.ly == y;
