@@ -15,22 +15,25 @@ public class PictureFrame {
 
 	class DominoPanel extends JPanel {
 		private static final long serialVersionUID = 4190229282411119364L;
-
+		private static final int ROW_COUNT = 7;
+		private static final int COLUMN_COUNT = 8;
+		private static final int CELL_SIZE = 20;
+		//Replace magic Number
 		public void drawGrid(Graphics g) {
-			for (int are = 0; are < 7; are++) {
-				for (int see = 0; see < 8; see++) {
-					drawDigitGivenCentre(g, 30 + see * 20, 30 + are * 20, 20, master.grid[are][see]);
+			for (int are = 0; are < ROW_COUNT; are++) {
+				for (int see = 0; see < COLUMN_COUNT; see++) {
+					drawDigitGivenCentre(g, 30 + see * CELL_SIZE, 30 + are * CELL_SIZE, CELL_SIZE, master.grid[are][see]);
 				}
 			}
 		}
 
 		public void drawHeadings(Graphics g) {
-			for (int are = 0; are < 7; are++) {
-				fillDigitGivenCentre(g, 10, 30 + are * 20, 20, are + 1);
+			for (int are = 0; are < ROW_COUNT; are++) {
+				fillDigitGivenCentre(g, 10, 30 + are * CELL_SIZE, CELL_SIZE, are + 1);
 			}
 
-			for (int see = 0; see < 8; see++) {
-				fillDigitGivenCentre(g, 30 + see * 20, 10, 20, see + 1);
+			for (int see = 0; see < COLUMN_COUNT; see++) {
+				fillDigitGivenCentre(g, 30 + see * CELL_SIZE, 10, CELL_SIZE, see + 1);
 			}
 		}
 
@@ -41,11 +44,11 @@ public class PictureFrame {
 				int w = Math.abs(d.lx - d.hx) + 1;
 				int h = Math.abs(d.ly - d.hy) + 1;
 				g.setColor(Color.WHITE);
-				g.fillRect(20 + x * 20, 20 + y * 20, w * 20, h * 20);
+				g.fillRect(CELL_SIZE + x * CELL_SIZE, CELL_SIZE + y * CELL_SIZE, w * CELL_SIZE, h * CELL_SIZE);
 				g.setColor(Color.RED);
-				g.drawRect(20 + x * 20, 20 + y * 20, w * 20, h * 20);
-				drawDigitGivenCentre(g, 30 + d.hx * 20, 30 + d.hy * 20, 20, d.high, Color.BLUE);
-				drawDigitGivenCentre(g, 30 + d.lx * 20, 30 + d.ly * 20, 20, d.low, Color.BLUE);
+				g.drawRect(CELL_SIZE + x * CELL_SIZE, CELL_SIZE + y * CELL_SIZE, w * CELL_SIZE, h * CELL_SIZE);
+				drawDigitGivenCentre(g, 30 + d.hx * CELL_SIZE, 30 + d.hy * CELL_SIZE, CELL_SIZE, d.high, Color.BLUE);
+				drawDigitGivenCentre(g, 30 + d.lx * CELL_SIZE, 30 + d.ly * CELL_SIZE, CELL_SIZE, d.low, Color.BLUE);
 			}
 		}
 		
