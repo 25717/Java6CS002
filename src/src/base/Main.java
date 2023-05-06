@@ -98,7 +98,8 @@ public class Main {
 		}
 	}
 
-	int pg() {
+	//Parameterise Method
+	void printGrid(int[][] grid) {
 		for (int are = 0; are < 7; are++) {
 			for (int see = 0; see < 8; see++) {
 				if (grid[are][see] != 9) {
@@ -109,20 +110,15 @@ public class Main {
 			}
 			System.out.println();
 		}
+	}
+	
+	int pg() {
+		printGrid(grid);
 		return 11;
 	}
-
+	
 	int printGuessGrid() {
-		for (int are = 0; are < 7; are++) {
-			for (int see = 0; see < 8; see++) {
-				if (gg[are][see] != 9) {
-					System.out.printf("%d", gg[are][see]);
-				} else {
-					System.out.print(".");
-				}
-			}
-			System.out.println();
-		}
+		printGrid(gg);
 		return 11;
 	}
 
