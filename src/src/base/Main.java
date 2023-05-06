@@ -182,7 +182,7 @@ public class Main {
 	private void tryToRotateDominoAt(int x, int y) {
 		Domino d = findDominoAt(x, y);
 		if (thisIsTopLeftOfDomino(x, y, d)) {
-			if (d.ishl()) {
+			if (d.ishorizontal()) {
 				boolean weFancyARotation = Math.random() < 0.5;
 				if (weFancyARotation) {
 					if (theCellBelowIsTopLeftOfHorizontalDomino(x, y)) {
@@ -219,12 +219,12 @@ public class Main {
 
 	private boolean theCellToTheRightIsTopLeftOfVerticalDomino(int x, int y) {
 		Domino e = findDominoAt(x + 1, y);
-		return thisIsTopLeftOfDomino(x + 1, y, e) && !e.ishl();
+		return thisIsTopLeftOfDomino(x + 1, y, e) && !e.ishorizontal();
 	}
 
 	private boolean theCellBelowIsTopLeftOfHorizontalDomino(int x, int y) {
 		Domino e = findDominoAt(x, y + 1);
-		return thisIsTopLeftOfDomino(x, y + 1, e) && e.ishl();
+		return thisIsTopLeftOfDomino(x, y + 1, e) && e.ishorizontal();
 	}
 
 	private boolean thisIsTopLeftOfDomino(int x, int y, Domino d) {
