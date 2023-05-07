@@ -30,16 +30,18 @@ public class Location extends SpacePlace {
 		this.d = d;
 	}
 
-	public String toString() {
+	public String toString() { //Split temporary variables
+		int temp;
 		if (d == null) {
-			tmp = c + 1;
-			return "(" + (tmp) + "," + (r + 1) + ")";
+			temp = c + 1;
+			return "(" + (temp) + "," + (r + 1) + ")";
 		} else {
-			tmp = c + 1;
-			return "(" + (tmp) + "," + (r + 1) + "," + d + ")";
+			temp = c + 1;
+			return "(" + (temp) + "," + (r + 1) + "," + d + ")";
 		}
 	}
-
+	
+// Extract method refactoring
 	public void drawGridLines(Graphics g) {
 		
 		drawHorizontalGridLines(g);
