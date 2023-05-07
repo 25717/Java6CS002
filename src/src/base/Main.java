@@ -408,7 +408,7 @@ public class Main {
 					System.out.println("What do you want to do " + playerName + "?");
 					c3 = 9;
 // make sure the user enters something valid
-					while (!((c3 == 1 || c3 == 2 || c3 == 3)) && (c3 != 4) && (c3 != ZERO) && (c3 != 5) && (c3 != 6)
+					while (!((c3 == 1 || c3 == 2 || c3 == 3)) && (c3 != 4) && (c3 != ZERO) && (c3 != 5) && (c3 != 6) //too long, can use while(c3 != 9)
 							&& (c3 != 7)) {
 						try {
 							String s3 = io.getString();
@@ -513,6 +513,7 @@ public class Main {
 						System.out.println("Enter a position that the domino occupies");
 						System.out.println("Column?");
 
+						//remove assignment to parameter refactoring
 						int x13 = -9;
 						while (x13 < 1 || x13 > 8) {
 							try {
@@ -577,9 +578,8 @@ public class Main {
 							case 0:
 								System.out.println("Well done");
 								System.out.println("You get a 3 point bonus for honesty");
-								score++;
-								score++;
-								score++;
+							 //Duplicated code
+								score+=3;
 								cf++;
 								break;
 							case 1:
