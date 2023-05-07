@@ -18,6 +18,17 @@ public class PictureFrame {
 		private static final int ROW_COUNT = 7;
 		private static final int COLUMN_COUNT = 8;
 		private static final int CELL_SIZE = 20;
+		int x, y, n, diameter;
+		Color c;
+		
+		DominoPanel(int x, int y, int diameter, int n, Color c){
+			this.x = x;
+	        this.y = y;
+	        this.diameter = diameter;
+	        this.n = n;
+	        this.c = c;
+		}
+		
 		//Replace magic Number
 		public void drawGrid(Graphics g) {
 			for (int are = 0; are < ROW_COUNT; are++) {
@@ -47,8 +58,8 @@ public class PictureFrame {
 				g.fillRect(CELL_SIZE + x * CELL_SIZE, CELL_SIZE + y * CELL_SIZE, w * CELL_SIZE, h * CELL_SIZE);
 				g.setColor(Color.RED);
 				g.drawRect(CELL_SIZE + x * CELL_SIZE, CELL_SIZE + y * CELL_SIZE, w * CELL_SIZE, h * CELL_SIZE);
-				drawDigitGivenCentre(g, 30 + d.hx * CELL_SIZE, 30 + d.hy * CELL_SIZE, CELL_SIZE, d.high, Color.BLUE);
-				drawDigitGivenCentre(g, 30 + d.lx * CELL_SIZE, 30 + d.ly * CELL_SIZE, CELL_SIZE, d.low, Color.BLUE);
+				drawDigitGivenCentre(g, new DominoPanel(30 + d.hx * CELL_SIZE, 30 + d.hy * CELL_SIZE, CELL_SIZE, d.high, Color.BLUE));
+				drawDigitGivenCentre(g, new DominoPanel(30 + d.lx * CELL_SIZE, 30 + d.ly * CELL_SIZE, CELL_SIZE, d.low, Color.BLUE));
 			}
 		}
 		
@@ -63,13 +74,13 @@ public class PictureFrame {
 			g.drawString(txt, x - fm.stringWidth(txt) / 2, y + fm.getMaxAscent() / 2);
 		}
 //////LONG PARAMETER////////
-		void drawDigitGivenCentre(Graphics g, int x, int y, int diameter, int n, Color c) {
-			int radius = diameter / 2;
-			g.setColor(c);
+		void drawDigitGivenCentre(Graphics g, DominoPanel dp ) {
+			int radius = dp.diameter / 2;
+			g.setColor(dp.c);
 // g.drawOval(x - radius, y - radius, diameter, diameter);
 			FontMetrics fm = g.getFontMetrics();
-			String txt = Integer.toString(n);
-			g.drawString(txt, x - fm.stringWidth(txt) / 2, y + fm.getMaxAscent() / 2);
+			String txt = Integer.toString(dp.n);
+			g.drawString(txt, dp.x - fm.stringWidth(txt) / 2, dp.y + fm.getMaxAscent() / 2);
 		}
 
 		void fillDigitGivenCentre(Graphics g, int x, int y, int diameter, int n) {
@@ -122,7 +133,7 @@ public class PictureFrame {
 		master = sf;
 		if (dp == null) {
 			JFrame f = new JFrame("Abominodo");
-			dp = new DominoPanel();
+			dp = new DominoPanel(0, 0, 0, 0, null);
 			f.setContentPane(dp);
 			f.pack();
 			f.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
