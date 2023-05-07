@@ -27,12 +27,12 @@ public class Domino implements Comparable<Domino> {
 		this.high = high;
 		this.low = low;
 	}
-
-	public void place(int hx, int hy, int lx, int ly) { // sets the corresponding attributes
-		this.hx = hx;
-		this.hy = hy;
-		this.lx = lx;
-		this.ly = ly;
+//remove assignment and parameter refactoring
+	public void place(int newHx, int newHy, int newLx, int newLy) { // sets the corresponding attributes
+		this.hx = newHx;
+		this.hy = newHy;
+		this.lx = newLx;
+		this.ly = newLy;
 		placed = true;
 	}
 
