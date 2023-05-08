@@ -9,10 +9,19 @@ import java.net.InetAddress;
 
 public class ConnectionGenius {
 /*The class called "ConnectionGenuis" is used to connect to a web service and play a game*/
-	InetAddress ipa;
+	private static ConnectionGenius instance = null;
+	private InetAddress ipa; //instance variable to hold the IP address
 
 	public ConnectionGenius(InetAddress ipa) {
 		this.ipa = ipa;
+	}
+	
+	//Creates and returns the single instance of the class
+	public static ConnectionGenius getInstance (InetAddress i) {
+		if (instance == null) {
+			instance = new ConnectionGenius(i);
+		}
+		return instance;
 	}
 	
 
