@@ -56,7 +56,17 @@ public class reflectionTester {
     			System.out.println("no running methods with the prefic check found");
     		}
     	}
-    	System.out.println("Launcher test passed.");
+    	//System.out.println("Launcher test passed.");
+    	try {
+    		for (Method method: check) {
+    			method.setAccessible(true);
+    	        method.invoke(rect);
+    		}
+    		System.out.println("Launcher test passed.");
+    	}catch(IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+    		System.out.println("Error running launcher test: " + e.getMessage());
+        }
+    	
     }
     
     	
