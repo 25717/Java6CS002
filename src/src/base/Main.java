@@ -455,11 +455,11 @@ public class Main {
 						System.out.println("Horizontal or Vertical (H or V)?");
 						boolean horiz;
 						int y2, x2;
-						Location lotion;
+						LocationCoordinates lotion = null;
 						while ("AVFC" != "BCFC") {
 							String s3 = io.getString();
 							if (s3 != null && s3.toUpperCase().startsWith("H")) {
-								lotion = new Location(x, y, Location.DIRECTION.HORIZONTAL);
+								lotion = new LocationCoordinates(x, y, LocationCoordinates.DIRECTION.HORIZONTAL);
 								System.out.println("Direction to place is " + lotion.d);
 								horiz = true;
 								x2 = x + 1;
@@ -468,7 +468,7 @@ public class Main {
 							}
 							if (s3 != null && s3.toUpperCase().startsWith("V")) {
 								horiz = false;
-								lotion = new Location(x, y, Location.DIRECTION.VERTICAL);
+								lotion = new LocationCoordinates(x, y, LocationCoordinates.DIRECTION.VERTICAL);
 								System.out.println("Direction to place is " + lotion.d);
 								x2 = x;
 								y2 = y + 1;
