@@ -36,7 +36,9 @@ public class reflectionTester {
     
     
     /**
-     * 
+     * This method runs all the methods in searching for any method that starts with the prefic "check"
+     * checks for the exception message
+     * Outputs "found" if a method is found
      * @param rect
      */
     //launcher
