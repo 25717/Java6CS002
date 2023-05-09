@@ -2,15 +2,22 @@ package reflectionPackage;
 
 import java.lang.reflect.*;
 import java.util.ArrayList;
-public class reflectionTester {
 
-public class reflectionTest{
+
+public class reflectionTester{
+	
+	private static int passCount = 0;
+	private static int failCount = 0;
+	
 	public static void main(String[] args) {
 		Area area = new Area(4.0, 5.0);
 		 runResilienceTesting(area);
 		 runLauncherTesting(area);
 		 runAssertionsTesting(area);
 		 runComplexTesting(area);
+		 
+		 System.out.println("");
+		 System.out.println("Tests Pass: " + passCount+ "  Tests Fail: "+failCount);
  
 	}
 	/**
@@ -33,8 +40,10 @@ public class reflectionTest{
             System.out.println(method);
             //Exceptions
         } catch (NoSuchMethodException | SecurityException | IllegalAccessException e) {
+        	failCount++;
             System.out.println("Error: " + e.getMessage());
         } catch (InvocationTargetException e) {
+        	passCount++;
             System.out.println("Resilience test passed."); //message
         }
     }
@@ -58,9 +67,11 @@ public class reflectionTest{
     	for(Method method : allMethods) {
     		if(method.getName().startsWith("check")) { //check
     			check.add(method);
-    			System.out.println("Found one");
-    			System.out.println(allMethods);
+    			//passCount++;
+    			//System.out.println("Found one");
+    			//System.out.println(allMethods);
     		} else {
+    			
     			System.out.println("no running methods with the prefic check found");
     		}
     	}
@@ -70,8 +81,10 @@ public class reflectionTest{
     			method.setAccessible(true);
     	        method.invoke(rect);
     		}
+    		passCount++;
     		System.out.println("Launcher test passed.");
     	}catch(IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+    		failCount++;
     		System.out.println("Error running launcher test: " + e.getMessage());
         }
     	
@@ -97,8 +110,11 @@ public class reflectionTest{
     		length.setAccessible(true);
     		double newWidth = length.getDouble(rect);
     		assert(newWidth == 5.0) : "widths not the same";
+    		
+    		passCount++;
     		System.out.println("Assertion test passed");
     	}catch(NoSuchFieldException | SecurityException | IllegalAccessException e) { //exceptions for no fields
+    		failCount++;
     		System.out.println("Error" + e.getMessage());
     	}
     }
@@ -121,9 +137,11 @@ public class reflectionTest{
     		method.setAccessible(true); //Access to private
     		method.invoke(rect);
     		//System.out.println(method);
+    		passCount++;
     		System.out.println("Complex assertion test passed");
     		
     	}catch(NoSuchMethodException | SecurityException | IllegalAccessException | InvocationTargetException e) {
+    		failCount++;
     		System.out.println("Error" + e.getMessage());
     	}
     	
@@ -131,6 +149,6 @@ public class reflectionTest{
     
  }
     	
-}
+
     
     
