@@ -4,16 +4,19 @@ import java.lang.reflect.*;
 import java.util.ArrayList;
 public class reflectionTester {
 
+public class reflectionTest{
 	public static void main(String[] args) {
 		Area area = new Area(4.0, 5.0);
 		 runResilienceTesting(area);
 		 runLauncherTesting(area);
-		 runAssertions(area);
+		 runAssertionsTesting(area);
+		 runComplexTesting(area);
  
 	}
-	/*
+	/**
      * This method checks for the exception. If one of the message is "NoSuchMethodException", "SecurityException" or "IllegalAccessException"
-     * it will print out an error message with the exception. If not the 
+     * it will print out an error message with the exception. 
+        Exceptional handling used
      * */
 	//Resilience
     public static void runResilienceTesting(Area rect) {
@@ -24,9 +27,10 @@ public class reflectionTester {
         try {
             Method method = areaClass.getDeclaredMethod("nonexistentMethod");
             //method.equals()
+            //System.out.println(rect);
             method.setAccessible(true);
             method.invoke(rect);
-            
+            System.out.println(method);
             //Exceptions
         } catch (NoSuchMethodException | SecurityException | IllegalAccessException e) {
             System.out.println("Error: " + e.getMessage());
@@ -40,6 +44,7 @@ public class reflectionTester {
      * This method runs all the methods in searching for any method that starts with the prefic "check"
      * checks for the exception message
      * Outputs "found" if a method is found
+     *  Exceptional handling used
      * @param rect
      */
     //launcher
@@ -72,10 +77,13 @@ public class reflectionTester {
     	
     }
     
+    //Assertion
+    
     /**
      * Checking to see is the value of the length and width that are assign is correct
+     *  Exceptional handling used
      */
-    public static void runAssertions(Area rect) {
+    public static void runAssertionsTesting(Area rect) {
     	Class<?> areaClass = rect.getClass(); //object using array list
     	
     	//check whether the length and width values are correct
@@ -95,12 +103,34 @@ public class reflectionTester {
     	}
     }
     
+    
+    
+    /**
+     *  In the complex assertion testing, it tests to see whether private methods can be accessed.
+     *  Exceptional handling used
+     * @param rect
+     */
+    
+    //Complex Assertion
+    public static void runComplexTesting(Area rect) {
+    	Class<?> areaClass = rect.getClass(); //object using array list
     	
-
+    	//private method
+    	try {
+    		Method method = areaClass.getDeclaredMethod("printDimensions");
+    		method.setAccessible(true); //Access to private
+    		method.invoke(rect);
+    		//System.out.println(method);
+    		System.out.println("Complex assertion test passed");
+    		
+    	}catch(NoSuchMethodException | SecurityException | IllegalAccessException | InvocationTargetException e) {
+    		System.out.println("Error" + e.getMessage());
+    	}
+    	
+    }
     
-    
-    
-    //Assertion#
-    //Complex assertion
-    //loggin
+ }
+    	
 }
+    
+    
