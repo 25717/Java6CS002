@@ -8,6 +8,7 @@ public class reflectionTester {
 		Area area = new Area(4.0, 5.0);
 		 runResilienceTesting(area);
 		 runLauncherTesting(area);
+		 runAssertions(area);
  
 	}
 	/*
@@ -69,6 +70,29 @@ public class reflectionTester {
     		System.out.println("Error running launcher test: " + e.getMessage());
         }
     	
+    }
+    
+    /**
+     * Checking to see is the value of the length and width that are assign is correct
+     */
+    public static void runAssertions(Area rect) {
+    	Class<?> areaClass = rect.getClass(); //object using array list
+    	
+    	//check whether the length and width values are correct
+    	try {
+    		Field length = areaClass.getDeclaredField("length"); //length
+    		length.setAccessible(true);
+    		double newlength = length.getDouble(rect);
+    		assert(newlength == 4.0) : "Lengths not the same";
+    		
+    		Field width = areaClass.getDeclaredField("width"); //width
+    		length.setAccessible(true);
+    		double newWidth = length.getDouble(rect);
+    		assert(newWidth == 5.0) : "widths not the same";
+    		System.out.println("Assertion test passed");
+    	}catch(NoSuchFieldException | SecurityException | IllegalAccessException e) { //exceptions for no fields
+    		System.out.println("Error" + e.getMessage());
+    	}
     }
     
     	
