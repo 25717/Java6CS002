@@ -27,26 +27,12 @@ public class ConnectionGenius {
 
 	public void fireUpGame() {
 		
-		downloadWebVersion();
-		connectToWebService();
-		awayWeGo();
+		System.out.println("Getting specialised web version.");
+		System.out.println("Wait a couple of moments");
+		System.out.println("Connecting");
+		System.out.println("Ready to play");
 	} 
 	//^^ The above method calls the other methods in sequence to carry out the steps that is necessary to connect to the web service.
 
-	public void downloadWebVersion() {
-		System.out.println("Getting specialised web version.");
-		System.out.println("Wait a couple of moments");
-	}
-	//^^ The above method outputs a message indicating that the game is getting ready
-
-	public void connectToWebService() {
-		System.out.println("Connecting");
-	}
-	//^^ The above method outputs a message saying that it is connecting with the web service
-
-	public void awayWeGo() {
-		System.out.println("Ready to play");
-	}
-	//^^ The above method outputs a message saying that the game is rady to play
 
 }
