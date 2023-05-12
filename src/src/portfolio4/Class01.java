@@ -1,13 +1,12 @@
 package portfolio4;
 
+public class Class01 {
 
-/**
- * Gets the object from the area class
- * */
-public class reflectionClassTwo {
 	public static void main(String[] args) {
 		Area a = new Area();
+		a.calculateArea();
 		System.out.println("Area = " + a);
 
 	}
+
 }

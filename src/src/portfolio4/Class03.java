@@ -1,6 +1,6 @@
 package portfolio4;
 
-public class reflectionClassThree {
+public class Class03 {
 	/**
 	 * Finding an Object's Class
 	 * @param args

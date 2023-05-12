@@ -1,6 +1,6 @@
 package portfolio4;
 
-public class reflectionClassFour {
+public class Class02 {
 	public static void main(String[] args) {
 	
 
