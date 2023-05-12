@@ -1,12 +1,15 @@
-package reflectionPackage;
+package portfolio4;
 
-public class reflectionOne {
-	private double length;
-    private double width;
+public class Area {
+	public double length = 4.0;
+    private double width = 5.0;
 
-    public reflectionOne(double length, double width) {
+    public Area(double length, double width) {
         this.length = length;
         this.width = width;
+    }
+    public Area() {
+    	
     }
 
     public double getLength() {
@@ -28,6 +31,10 @@ public class reflectionOne {
     public double calculateArea() {
         return length * width;
     }
+    
+    public double checkArea() {
+    	return length * width;
+    }
 
     private void printDimensions() {
         System.out.println("Length: " + length);
@@ -35,6 +42,6 @@ public class reflectionOne {
     }
     
     public String toString() {
-    	return "Rectangle[length=" + length + ", width=" + width + "]";
+    	return "Area[length=" + length + ", width=" + width + "]";
     }
 }

@@ -1,4 +1,4 @@
-package reflectionPackage;
+package portfolio4;
 
 public class reflectionClassThree {
 	/**

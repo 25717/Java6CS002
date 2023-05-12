@@ -13,7 +13,7 @@ public class PictureFrame {
 	public int[] reroll = null;
 	public Main master = null;
 
-	class DominoPanel extends JPanel {
+	public class DominoPanel extends JPanel {
 		private static final long serialVersionUID = 4190229282411119364L;
 		private static final int ROW_COUNT = 7;
 		private static final int COLUMN_COUNT = 8;
@@ -21,7 +21,7 @@ public class PictureFrame {
 		int x, y, n, diameter;
 		Color c;
 		
-		DominoPanel(int x, int y, int diameter, int n, Color c){
+		public DominoPanel(int x, int y, int diameter, int n, Color c){
 			this.x = x;
 	        this.y = y;
 	        this.diameter = diameter;

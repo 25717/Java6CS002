@@ -1,4 +1,4 @@
-package reflectionPackage;
+package portfolio4;
 
 import java.lang.reflect.*;
 import java.util.ArrayList;
@@ -106,7 +106,7 @@ public class reflectionTester{
     		double newlength = length.getDouble(rect);
     		assert(newlength == 4.0) : "Lengths not the same";
     		
-    		Field width = areaClass.getDeclaredField("width"); //width
+    		Field width = areaClass.getDeclaredField("width"); //width 
     		length.setAccessible(true);
     		double newWidth = length.getDouble(rect);
     		assert(newWidth == 5.0) : "widths not the same";
