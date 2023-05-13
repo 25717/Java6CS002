@@ -18,7 +18,10 @@ public class PictureFrame {
 		private static final int ROW_COUNT = 7;
 		private static final int COLUMN_COUNT = 8;
 		private static final int CELL_SIZE = 20;
-		int x, y, n, diameter;
+		public int x;
+		public int y;
+		public int n;
+		public int diameter;
 		Color c;
 		
 		public DominoPanel(int x, int y, int diameter, int n, Color c){
@@ -74,7 +77,7 @@ public class PictureFrame {
 			g.drawString(txt, x - fm.stringWidth(txt) / 2, y + fm.getMaxAscent() / 2);
 		}
 //////LONG PARAMETER////////
-		void drawDigitGivenCentre(Graphics g, DominoPanel dp ) {
+		public void drawDigitGivenCentre(Graphics g, DominoPanel dp ) {
 			int radius = dp.diameter / 2;
 			g.setColor(dp.c);
 // g.drawOval(x - radius, y - radius, diameter, diameter);

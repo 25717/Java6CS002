@@ -7,38 +7,31 @@ public class Football implements Comparable<Football>{
 	  private int won;
 	  private int drawn;
 	  private int lost;
-	  private int pointsFor;
-	  private int pointsAgainst;
-	  private int pointsDifference;
-	  private int triesFor;
-	  private int triesAgainst;
-	  private int tryBonus;
-	  private int losingBonus;
-	  private int points;
+	  private int totalPoint;
+	  private int goalsForward;
+	  private int goalsAway;
+	  private int goalsDiffer;
 
-	  public Football(int position, String club, int played, int won, int drawn, int lost, int pointsFor, int pointsAgainst, int pointsDifference,int triesFor, int triesAgainst, int tryBonus, int losingBonus,int points) {
+	  public Football(int position, String club, int played, int won, int drawn, int lost, int totalPoint, int goalsForward, int goalsAway,int goalsDiffer) {
 	    this.position = position;
 	    this.club = club;
 	    this.played = played;
 	    this.won = won;
 	    this.drawn = drawn;
 	    this.lost = lost;
-	    this.pointsFor = pointsFor;
-	    this.pointsAgainst = pointsAgainst;
-	    this.pointsDifference = pointsDifference;
-	    this.triesFor = triesFor;
-	    this.triesAgainst = triesAgainst;
-	    this.tryBonus = tryBonus;
-	    this.losingBonus = losingBonus;
-	    this.points = points;
+	    this.totalPoint = totalPoint;
+	    this.goalsForward = goalsForward;
+	    this.goalsAway = goalsAway;
+	    this.goalsDiffer = goalsDiffer;
+	   
 	  }
 
 	  public String toString() {
-	    return String.format("%-3d%-20s%10d%10d%10d", position, club, pointsFor,
-	        pointsAgainst, points);
+	    return String.format("%-3d%-20s%10d%10d%10d", position, club, totalPoint,
+	        goalsForward, goalsAway);
 	  }
 
-	  public int getPosition() {
+	  public int getPosition() { //position
 	    return position;
 	  }
 
@@ -46,7 +39,7 @@ public class Football implements Comparable<Football>{
 	    this.position = position;
 	  }
 
-	  public String getClub() {
+	  public String getClub() { //club name
 	    return club;
 	  }
 
@@ -54,7 +47,7 @@ public class Football implements Comparable<Football>{
 	    this.club = club;
 	  }
 
-	  public int getPlayed() {
+	  public int getPlayed() { //games played
 	    return played;
 	  }
 
@@ -62,7 +55,7 @@ public class Football implements Comparable<Football>{
 	    this.played = played;
 	  }
 
-	  public int getWon() {
+	  public int getWon() { //games won
 	    return won;
 	  }
 
@@ -70,7 +63,7 @@ public class Football implements Comparable<Football>{
 	    this.won = won;
 	  }
 
-	  public int getDrawn() {
+	  public int getDrawn() { //games drawn
 	    return drawn;
 	  }
 
@@ -78,7 +71,7 @@ public class Football implements Comparable<Football>{
 	    this.drawn = drawn;
 	  }
 
-	  public int getLost() {
+	  public int getLost() {  // games lost
 	    return lost;
 	  }
 
@@ -86,71 +79,41 @@ public class Football implements Comparable<Football>{
 	    this.lost = lost;
 	  }
 
-	  public int getPointsFor() {
-	    return pointsFor;
+	  public int getTotalPoints() { //total points
+	    return totalPoint;
 	  }
 
-	  public void setPointsFor(int pointsFor) {
-	    this.pointsFor = pointsFor;
+	  public void setTotalPoints(int totalPoint) {
+	    this.totalPoint = totalPoint;
 	  }
 
-	  public int getPointsAgainst() {
-	    return pointsAgainst;
+	  public int getGoalsForward() { //goals forward
+	    return goalsForward;
 	  }
 
-	  public void setPointsAgainst(int pointsAgainst) {
-	    this.pointsAgainst = pointsAgainst;
+	  public void setGoalsForward(int goalsForward) {
+	    this.goalsForward = goalsForward;
 	  }
 
-	  public int getPointsDifference() {
-	    return pointsDifference;
+	  public int getGoalsAway() {  //goal away
+	    return goalsAway;
 	  }
 
-	  public void setPointsDifference(int pointsDifference) {
-	    this.pointsDifference = pointsDifference;
+	  public void setGoalsAway(int goalsAway) {
+	    this.goalsAway = goalsAway;
 	  }
 
-	  public int getTriesFor() {
-	    return triesFor;
+	  public int getGoalDifference() {  //goal differences
+	    return goalsDiffer;
 	  }
 
-	  public void setTriesFor(int triesFor) {
-	    this.triesFor = triesFor;
+	  public void setGoalDifference(int goalsDiffer) {
+	    this.goalsDiffer = goalsDiffer;
 	  }
-
-	  public int getTriesAgainst() {
-	    return triesAgainst;
-	  }
-
-	  public void setTriesAgainst(int triesAgainst) {
-	    this.triesAgainst = triesAgainst;
-	  }
-
-	  public int getTryBonus() {
-	    return tryBonus;
-	  }
-
-	  public void setTryBonus(int tryBonus) {
-	    this.tryBonus = tryBonus;
-	  }
-
-	  public int getLosingBonus() {
-	    return losingBonus;
-	  }
-
-	  public void setLosingBonus(int losingBonus) {
-	    this.losingBonus = losingBonus;
-	  }
-
-	  public int getPoints() {
-	    return points;
-	  }
-
-	  public void setPoints(int points) {
-	    this.points = points;
-	  }
-	  
+ 
 	  public int compareTo(Football c) {
-	    return ((Integer) pointsFor).compareTo(c.pointsFor);
+	    return ((Integer) goalsForward).compareTo(c.goalsForward);
 	  }
+
+	
 }
