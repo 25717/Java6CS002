@@ -55,7 +55,7 @@ public class Location extends SpacePlace {
 		} while (true);
 	}
 }
-class LocationCoordinates {
+  class LocationCoordinates {
 	public int c; //column
 	public int r; //rows
 	public DIRECTION d; //direction
