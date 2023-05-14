@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /*
+ * Using the 'sorted()' method of the stream with no arguments.
+ * This method uses the natural ordering of the objects, which is defined by the 'comparedTo()'
  * 
  * */
 import java.util.List;
@@ -12,8 +14,8 @@ public class Code05 {
 
 	public static void main(String[] args) {
 		List<Football> footballList = new ArrayList<>();
-	    footballList.add(new Football(1, "Man City", 38, 27, 5, 6, 86, 83, 32, 51));
-	    footballList.add(new Football(2, "Man United", 38, 21, 11, 6, 74, 73, 44, 29));
+	    footballList.add(new Football(1, "Manchester City", 38, 27, 5, 6, 86, 83, 32, 51));
+	    footballList.add(new Football(2, "Manchester United", 38, 21, 11, 6, 74, 73, 44, 29));
 	    footballList.add(new Football(3, "Liverpool", 38, 20, 9, 9, 69, 68, 42, 26));
 	    footballList.add(new Football(4, "Chelsea", 38, 19, 10, 9, 67, 58, 36, 22));
 	    footballList.add(new Football(5, "Leicester", 38, 20, 6, 12, 66, 68, 50, 18));
@@ -23,7 +25,7 @@ public class Code05 {
 	    footballList.add(new Football(9, "Leeds", 38, 18, 5, 15, 59, 62, 54, 8));
 	    footballList.add(new Football(10, "Everton", 38, 17, 8, 13, 59, 47, 48, -1));
 	
-	    System.out.println("Sorted by the Fottball class");
+	    System.out.println("Sorted by the Football class");
 	    footballList.stream().sorted().forEach(System.out::println);
 
 	    System.out.println();

@@ -6,14 +6,18 @@ import java.util.List;
 import java.util.OptionalInt;
 
 /*
+ * Uses 'Stream' API in Java to perform functional programming to the objects of the Football class.
+ * Uses stream to extract the minimum value of totalpoint attribute among all the 'Football' objects list.
+ * 'mapToInt()' method to convert the stream of football objects into a stream of 'int' values.
+ * 
  * */
 
 public class Code03 {
 
 	public static void main(String[] args) {
 		List<Football> footballList = new ArrayList<>();
-	    footballList.add(new Football(1, "Man City", 38, 27, 5, 6, 86, 83, 32, 51));
-	    footballList.add(new Football(2, "Man United", 38, 21, 11, 6, 74, 73, 44, 29));
+	    footballList.add(new Football(1, "Manchester City", 38, 27, 5, 6, 86, 83, 32, 51));
+	    footballList.add(new Football(2, "Manchester United", 38, 21, 11, 6, 74, 73, 44, 29));
 	    footballList.add(new Football(3, "Liverpool", 38, 20, 9, 9, 69, 68, 42, 26));
 	    footballList.add(new Football(4, "Chelsea", 38, 19, 10, 9, 67, 58, 36, 22));
 	    footballList.add(new Football(5, "Leicester", 38, 20, 6, 12, 66, 68, 50, 18));

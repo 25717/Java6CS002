@@ -4,13 +4,17 @@ import java.util.Arrays;
 import java.util.List;
 
 /*
+ * ArrayList of Football object named "footballList" is created and initialised with the data of 10 football clubs
+ * 
+ * The forEach() method of the List Interface is used to iterate over the footballList and print the list
+ * 
  * */
 
 public class Code01 {
 	  public static void main(String[] args) {
 		  List<Football> footballList = new ArrayList<>();
-		    footballList.add(new Football(1, "Man City", 38, 27, 5, 6, 86, 83, 32, 51));
-		    footballList.add(new Football(2, "Man United", 38, 21, 11, 6, 74, 73, 44, 29));
+		    footballList.add(new Football(1, "Manchester City", 38, 27, 5, 6, 86, 83, 32, 51));
+		    footballList.add(new Football(2, "Manchester United", 38, 21, 11, 6, 74, 73, 44, 29));
 		    footballList.add(new Football(3, "Liverpool", 38, 20, 9, 9, 69, 68, 42, 26));
 		    footballList.add(new Football(4, "Chelsea", 38, 19, 10, 9, 67, 58, 36, 22));
 		    footballList.add(new Football(5, "Leicester", 38, 20, 6, 12, 66, 68, 50, 18));

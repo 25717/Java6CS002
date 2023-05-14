@@ -5,12 +5,17 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/*
+ * The code then filters the Football objects in the stream to keep only those with total points greater than or equal to 60 using the filter method
+ * 
+ * */
+
 public class Code06 {
 
   public static void main(String[] args) {
     List<Football> footballList = new ArrayList<>();
-    footballList.add(new Football(1, "Man City", 38, 27, 5, 6, 86, 83, 32, 51));
-    footballList.add(new Football(2, "Man United", 38, 21, 11, 6, 74, 73, 44, 29));
+    footballList.add(new Football(1, "Manchester City", 38, 27, 5, 6, 86, 83, 32, 51));
+    footballList.add(new Football(2, "Manchester United", 38, 21, 11, 6, 74, 73, 44, 29));
     footballList.add(new Football(3, "Liverpool", 38, 20, 9, 9, 69, 68, 42, 26));
     footballList.add(new Football(4, "Chelsea", 38, 19, 10, 9, 67, 58, 36, 22));
     footballList.add(new Football(5, "Leicester", 38, 20, 6, 12, 66, 68, 50, 18));
