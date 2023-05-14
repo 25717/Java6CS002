@@ -15,7 +15,8 @@ public class Class05 {
 	    System.out.printf("There are %d fields\n", fields.length);
 
 	    for (Field f : fields) {
-	      System.out.printf("field name=%s type=%s value=%d\n", f.getName(), f.getType(), f.getInt(a));
+	      f.setAccessible(true); // set accessible flag to true
+	      System.out.printf("field name=%s type=%s value=%f\n", f.getName(), f.getType(), f.getDouble(a));
 	    }
 
 	}

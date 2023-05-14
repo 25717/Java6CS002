@@ -10,9 +10,9 @@ public class Class10 {
 
 	public static void main(String[] args) throws Exception {
 	    Area a = new Area();
-	    Method m = a.getClass().getDeclaredMethod("setA", int.class);
+	    Method m = a.getClass().getDeclaredMethod("setWidth", double.class);
 	    m.setAccessible(true);
-	    m.invoke(a, 76);
+	    m.invoke(a, 10);
 	    System.out.println(a);
 	  }
 
