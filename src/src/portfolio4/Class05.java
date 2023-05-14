@@ -2,6 +2,11 @@ package portfolio4;
 
 import java.lang.reflect.Field;
 
+/**
+ * Main purpose is to demonstrate the use of reflection in Java. 
+ * Specifically, it retrieves the declared fields of an instance of the "Area" class, and then iterates over them to print out their names, types, and values.
+ * */
+
 public class Class05 {
 
 	public static void main(String[] args) throws IllegalArgumentException, IllegalAccessException {

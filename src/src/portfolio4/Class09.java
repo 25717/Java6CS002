@@ -1,6 +1,12 @@
 package portfolio4;
 
 import java.lang.reflect.Field;
+
+/**
+ *  using reflection to get the list of methods for the "Area" class, 
+ *  and then iterating through each method to print out its name, return type, and parameter types.
+ * 
+ * */
 import java.lang.reflect.Method;
 
 public class Class09 {

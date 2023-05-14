@@ -2,6 +2,11 @@ package portfolio4;
 
 import java.lang.reflect.*;
 
+/**
+ * Demonstrate how to access and modify the values of the private fields of an object using reflection in Java. 
+ * The code creates an object of the Area class and then uses reflection to retrieve all the fields declared in the Area class, including private fields. 
+ * */
+
 public class Class08 {
 
 	public static void main(String[] args) throws Exception {

@@ -2,6 +2,11 @@ package portfolio4;
 
 import java.lang.reflect.Field;
 
+/**
+ *  retrieve information about the fields of a class named "Area". 
+ *  Uses reflection to access the class's fields, including private fields, and prints out their names, types, and values. 
+ * */
+
 public class Class07 {
 
 	public static void main(String[] args) throws Exception{
