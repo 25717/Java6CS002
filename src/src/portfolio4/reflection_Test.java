@@ -11,8 +11,8 @@ import org.junit.Test;
 public class reflection_Test {
     
 	
-	
-	
+	private static int passCount = 0;
+	private static int failCount = 0;
     private Area areaClass;
     
     
@@ -36,6 +36,10 @@ public class reflection_Test {
                 try {
                     // Invoke 
                     methods.invoke(areaClass);
+                    passCount++;
+                    System.out.println("The Launcher test pass");
+                    System.out.println("");
+            		System.out.println("Tests Pass Count: " + passCount+ "  Tests Fail Count: "+failCount);
                 } catch (Exception e) {
                     failedChecks.add(methodName);
                 }
@@ -60,10 +64,11 @@ public class reflection_Test {
 	@Test
 	public void testDivideByZero() {
 		try {
-			double x = 4.0 / 2.0;
+			double x = 4 / 0;
 			fail("Expected an Arithmetic Exception to be thrown");
 		} catch (ArithmeticException e) {
-			System.out.print("The test pass");
+			passCount++;
+			System.out.println("The resilience test pass");
 		} catch (Exception e) {
 			fail("Unexpected exception: " + e.getMessage());
 		}
@@ -94,6 +99,8 @@ public class reflection_Test {
 		double expectedWidth = 4.0;
 		double actualWidth = area.getWidth();
 		assertEquals(expectedWidth, actualWidth, 0.0);
+		System.out.println("The Simple Assertion test pass");
+		passCount++;
 	}
 	
 	
@@ -113,6 +120,24 @@ public class reflection_Test {
 	    fieldwidth.setAccessible(true);
 	    double widthValue = (double) fieldwidth.get(areaClass);
 	    assertEquals(4.0, widthValue, 0.0);
+	   
+	   
     }
+	
+	
+	//testing to access a private method
+	 @Test
+	    public void testprivateGetWidth() throws Exception {
+	        Area area = new Area();
+	        Class<? extends Area> areaClass = area.getClass();
+	        java.lang.reflect.Field field = areaClass.getDeclaredField("width");
+	        field.setAccessible(true);
+	        double width = (double) field.get(area);
+	        assertEquals(5.0, width, 0.0);
+	        System.out.println("The Complex Assertion test pass");
+		    passCount++;
+	    }
+	
+	 
     
 }
